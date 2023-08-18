@@ -1,6 +1,5 @@
 ---
-Unraveling the Layers of Intelligence: Neural Networks,
-  Reinforcement Learning and Proximal Policy Optimization
+Unraveling the Layers of Intelligence: Neural Networks, Reinforcement Learning and Proximal Policy Optimization
 ---
 
 Artificial Intelligence (AI), an emergent technology, is steadily
@@ -79,7 +78,7 @@ output layer, an error term is found from the difference in predicted
 and actual results. Finally, local gradients in the hidden and output
 layers are backpropagated to adjust the weights.
 
-![Figure 1](C:\Users\isabe\OneDrive\Documents\Izzy 2021-2022\Github Practice\PPO-Algorithm-Tutorial\Images and Videos for Tutorial\Structure of Simple Neural Network.jpg)
+![Figure 1](C:/Users/isabe/OneDrive/Documents/Izzy 2021-2022/Github Practice/PPO-Algorithm-Tutorial/Images and Videos for Tutorial/Structure of Simple Neural Network.jpg)
 
 *Figure 1: Structure of Simple Neural Network*
 
