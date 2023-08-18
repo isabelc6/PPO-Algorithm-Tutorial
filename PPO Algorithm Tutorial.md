@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4a0075cab158cc4b5cd3c31eefedd8c3202ff274
 ---
-title: "**Unraveling the Layers of Intelligence: Neural Networks,
-  Reinforcement Learning and Proximal Policy Optimization**"
+Unraveling the Layers of Intelligence: Neural Networks,
+  Reinforcement Learning and Proximal Policy Optimization
 ---
 
 Artificial Intelligence (AI), an emergent technology, is steadily
