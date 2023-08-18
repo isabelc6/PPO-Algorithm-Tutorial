@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 4a0075cab158cc4b5cd3c31eefedd8c3202ff274
 ---
 Unraveling the Layers of Intelligence: Neural Networks,
   Reinforcement Learning and Proximal Policy Optimization
@@ -69,7 +65,7 @@ where the network is given the inputs and corresponding outputs during
 training. It will then adjust the parameters in order to create a system
 with minimal difference between the prediction estimates and actual
 values. If there are more neurons and layers in a network, the level of
-complexity a pattern that it can learn increases.
+complexity of a pattern that it can learn increases.
 
 A simple neural network is constructed of input layers, hidden layers,
 and an output layer (Figure 1). The input layer is where the network
@@ -83,9 +79,7 @@ output layer, an error term is found from the difference in predicted
 and actual results. Finally, local gradients in the hidden and output
 layers are backpropagated to adjust the weights.
 
-![A screenshot of a computer Description automatically
-generated](media/image1.png){width="3.907716535433071in"
-height="2.289958442694663in"}
+![Figure 1](C:\Users\isabe\OneDrive\Documents\Izzy 2021-2022\Github Practice\PPO-Algorithm-Tutorial\Images and Videos for Tutorial\Structure of Simple Neural Network.jpg)
 
 *Figure 1: Structure of Simple Neural Network*
 
@@ -94,10 +88,10 @@ the training cycle, the training data will be divided into minibatches,
 which will help the process to be faster. Minibatches are subsets of
 input data that are used for training the policy. They will bring in
 stochasticity to prevent overfitting. After each minibatch, the weights
-of the network are updates during an epoch, which is one full pass
+of the network are updated during an epoch, which is one full pass
 through the training data. More specifically, each neuron will receive
 an input \[$x_{1},\ x_{2},\ \ldots,\ x_{i}$\] from a set of more
-neurons. The inputs will be multiplied by corresponding weights
+neurons. The inputs will be multiplied by the corresponding weights
 \[$w_{1},\ w_{2},\ \ldots,\ w_{i},\ w_{j}$\] and added together with a
 bias term. Then, a weighted sum and activation will transform the input
 into an output. The formula for the weighted sum in the x^th^ layer is
@@ -129,7 +123,7 @@ $$v_{j} = \sum_{i}^{}{w_{ji}x_{i} + b_{j}}\  \rightarrow \ \varphi\  \rightarrow
 Furthermore, the network produces an output through a similar process
 with weighted sums being used to find the predicted values. Since the
 actual value is already known, the difference between the estimation and
-actual value is known as the error. Its formula is:
+the actual value is known as the error. Its formula is:
 
 $$e_{j} = \ d_{j} - \ y_{j}$$
 
@@ -160,7 +154,7 @@ and the error from the output:
 $${\delta_{j}(t) = \varphi}_{j}^{'}(v_{j}(t))\sum_{k}^{}{\delta_{k}(t)w_{kj}(t)}$$
 
 Through the process of adjusting the weights, the errors are propagated
-"backwards" through the cycle from output to input layer. The local
+"backwards" through the cycle from the output to the input layer. The local
 gradients are used for each neuron. Then, the derivative of the loss
 with respect to the weighted sum is found by the chain rule.
 Mathematically, this is shown as:
@@ -199,9 +193,7 @@ Adaptive Moment Estimation (ADAM). It works to update each weight's
 learning rate using the estimations from the first and second moment of
 the gradients.
 
-![A screenshot of a computer Description automatically
-generated](media/image2.png){width="4.097145669291338in"
-height="2.6658278652668415in"}
+![Figure 2](C:\Users\isabe\OneDrive\Documents\Izzy 2021-2022\Github Practice\PPO-Algorithm-Tutorial\Images and Videos for Tutorial\Gradient Descent.jpg)
 
 *Figure 2: Gradient Descent*
 
@@ -217,7 +209,7 @@ values for various outcomes. There are two types of reinforcement
 learning approaches: model-based and model-free. In a model-based
 structure, the agent will have access to a model of an environment that
 it can study to predict state transitions and rewards. In a model-free
-structure, there is not model available for the agent. Instead, it must
+structure, there is no model available for the agent. Instead, it must
 understand state transitions and rewards through action attempts in the
 environment. There are many algorithms that fall under reinforcement
 learning (Figure 3). Each different algorithm serves as a different way
@@ -260,7 +252,7 @@ Given Model Method
 
 In model-free methods, the agent must learn to make decisions without
 access to an environment or knowledge of its dynamics. Alternatively,
-the value function or policy are understood directly from interacting
+the value function or policy is understood directly from interacting
 with the environment.
 
 Proximal Policy Optimization (PPO)
@@ -361,7 +353,7 @@ where $\pi$ is the policy function determining the probability of
 $a_{t}$ in state $s_{t}$
 
 Here, $\rho_{t}$, is a probability ratio that helps with convergence. If
-the probability were to be higher for a new policy where a better action
+the probability was to be higher for a new policy where a better action
 is taken, there would be an increase in advantage and a ratio greater
 than 1. On the other hand, if the probability of the new policy's action
 was lower than the old policy's probability, the ratio would be less
@@ -369,7 +361,7 @@ than 1 with a reduction in advantage.
 
 In each iteration, the policy parameters, $\theta$, are adjusted in
 hopes of maximizing the policy's improvement. However, if too many or
-big of changes are made in one iteration, it can render the algorithm
+big changes are made in one iteration, it can render the algorithm
 inefficient or ineffective. Thus, we use the formula,
 $L^{CLIP}(\theta)$, to assure that there is not a large deviation from
 the previous policy iteration. The formula is as follows:
@@ -389,7 +381,7 @@ $$= {\widehat{E}}_{t}\left\lbrack L_{t}^{CLIP}(\theta) - {c_{1}\ L}_{t}^{VF}(\th
 
 Where:
 
--   $\theta$ denotes the parameters for policy network and value network
+-   $\theta$ denotes the parameters for the policy network and value network
 
 -   $t$ is the current timestep
 
@@ -410,11 +402,11 @@ Where:
 This objective aims to find better actions (policy objective) while
 estimating the value of the action across various states (value
 function), all while maintaining a level of randomness (entropy bonus)
-to ensure exploration of all possibilities.
+to ensure the exploration of all possibilities.
 
 # **The Algorithm**
 
-The algorithm initiates with random selected $\theta$­~0~ values for the
+The algorithm initiates with randomly selected $\theta$­~0~ values for the
 policy and value network parameters. The process continues through
 several iterations until the policy converges. In each cycle, actions
 are chosen from the policy at random, rewards are received, and states
@@ -422,7 +414,7 @@ are updated. The advantage for all states in all rollouts is computed to
 determine the best action for each state. The parameters for the next
 cycle are adjusted to enhance the policy. The objective function
 $L^{PPO}(\theta_{k})$ is minimized using Stochastic Gradient Descent
-(SGD) with ADAM, and the network is trained for X epochs, taking Y steps
+(SGD) with ADAM and the network is trained for X epochs, taking Y steps
 per epoch with size Z minibatches. Step-by-step, the process is as
 follows:
 
@@ -620,7 +612,7 @@ pip install pyglet==1.5.21
 
 pip install opencv-python==4.5.5.62
 
-> \# OpenCV is a library of programming functions that is often used to
+> \# OpenCV is a library of programming functions that are often used to
 > process videos and images. This installs version 4.5.5.62 of the
 > OpenCV Python library.
 
