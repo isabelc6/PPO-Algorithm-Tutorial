@@ -1,5 +1,5 @@
 ---
-Unraveling the Layers of Intelligence: Neural Networks, Reinforcement Learning and Proximal Policy Optimization
+# **Unraveling the Layers of Intelligence: Neural Networks, Reinforcement Learning and Proximal Policy Optimization**
 ---
 
 Artificial Intelligence (AI), an emergent technology, is steadily
@@ -78,7 +78,7 @@ output layer, an error term is found from the difference in predicted
 and actual results. Finally, local gradients in the hidden and output
 layers are backpropagated to adjust the weights.
 
-![Figure 1](C:/Users/isabe/OneDrive/Documents/Izzy 2021-2022/Github Practice/PPO-Algorithm-Tutorial/Images and Videos for Tutorial/Structure of Simple Neural Network.jpg)
+![Figure 1](Images%20and%20Videos%20for%20Tutorial/Structure%20of%20Simple%20Neural%20Network.jpg)
 
 *Figure 1: Structure of Simple Neural Network*
 
@@ -192,7 +192,8 @@ Adaptive Moment Estimation (ADAM). It works to update each weight's
 learning rate using the estimations from the first and second moment of
 the gradients.
 
-![Figure 2](C:\Users\isabe\OneDrive\Documents\Izzy 2021-2022\Github Practice\PPO-Algorithm-Tutorial\Images and Videos for Tutorial\Gradient Descent.jpg)
+![Figure 2](Images%20and%20Videos%20for%20Tutorial/Gradient%20Descent.jpg)
+
 
 *Figure 2: Gradient Descent*
 
