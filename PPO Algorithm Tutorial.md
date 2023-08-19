@@ -52,9 +52,9 @@ Please note, many portions of this tutorial were written with the help
 of Chat GPT as a test to understand the system's functions and how it
 can incorporate their own information with material written by a human.
 
-# **Prerequisites**
+## **Prerequisites**
 
-Neural network
+### **Neural network**
 
 An artificial neural network is a type of computing system that
 processes data in the same manner as a human brain. It uses
