@@ -149,6 +149,7 @@ $$\delta_{j}(t) = \  - \varphi_{j}^{'}(v_{j}(t))e_{j}(t)$$
 The local gradient for the output node is the negative derivative of the
 activation function, multiplied by the following layer's weighted sum
 and the error from the output:
+$$\delta_j(t) = \phi_j'(v_j(t)) \sum_k \delta_k(t) w_{kj}(t)$$
 
 $$\delta_{j}(t) = \varphi'_{j}(v_{j}(t))\sum_{k}\delta_{k}(t)w_{kj}(t)$$
 
