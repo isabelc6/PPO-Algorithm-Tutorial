@@ -151,10 +151,6 @@ activation function, multiplied by the following layer's weighted sum
 and the error from the output:
 $$\delta_j(t) = \phi_j'(v_j(t)) \sum_k \delta_k(t) w_{kj}(t)$$
 
-$$\delta_{j}(t) = \varphi'_{j}(v_{j}(t))\sum_{k}\delta_{k}(t)w_{kj}(t)$$
-
-$${\delta_{j}(t) = \varphi}_{j}^{'}(v_{j}(t))\sum_{k}^{}{\delta_{k}(t)w_{kj}(t)}$$
-
 Through the process of adjusting the weights, the errors are propagated
 "backwards" through the cycle from the output to the input layer. The local
 gradients are used for each neuron. Then, the derivative of the loss
@@ -168,8 +164,9 @@ By using the gradients, we can use the highlighted formula to adjust our
 weights. Here, the loss gradient is also known as the activation
 gradient. The formulas can be found here:
 
-Weight gradient: *\
-*$$\frac{\partial L}{\partial w_{ji}} = \frac{\partial L}{\partial v_{j}}\frac{\partial v_{j}}{\partial w_{ji}} = \delta_{j}x_{i}$$
+Weight gradient: 
+$$\frac{\partial L}{\partial w_{ji}} = \frac{\partial L}{\partial v_j} \frac{\partial v_j}{\partial w_{ji}} = \delta_j x_i$$
+
 
 Loss/Activation gradient:
 
@@ -183,7 +180,7 @@ $$\delta_{j} = - \varphi_{j}^{'}\left( v_{j} \right)e_{j}$$
 
 Weight update:
 
-$$w_{ji}(t + 1) = w_{ji}(t) + {\lambda \cdot \delta}_{j}(t)x_{i}(t)$$
+$$w_{ji}(t+1) = w_{ji}(t) + \lambda \delta_j(t) x_i(t)$$
 
 There are optimization algorithms that are used to adjust the network's
 weights. For example, the Stochastic Gradient Descent (SGD) (Figure 2)
@@ -291,7 +288,7 @@ the value function and determines the magnitude of each update.
 
 Advantage Function
 
-The advantage function (${\widehat{A}}_{t}$) updates the value function
+The advantage function ($\hat{A}_t$) updates the value function
 and policy. It measures the relative benefit of taking action $a_{t}$ in
 state $s_{t}$ compared to the average value of the state $s_{t}$. It can
 be considered equivalent to the TD-error, $\delta_{t}$, in TD Learning
@@ -303,8 +300,8 @@ $$\delta_{t} = A\left( a_{t},s_{t} \right) = Q\left( a_{t},s_{t} \right) - V\lef
 $$Q\left( a_{t},s_{t} \right) = r_{t + 1} + \gamma V\left( s_{t + 1} \right)$$
 
 The generalized advantage estimation ${\widehat{A}}_{t}$, that is
-applied for td-learning for all timesteps, can be represented as: *\
-*$${\widehat{A}}_{t} = A^{GAE}\left( a_{t},s_{t} \right) = \delta_{t} + \lambda\gamma\delta_{t + 1} + \lambda^{2}\gamma^{2}\delta_{t + 2} + \cdots$$
+applied for td-learning for all timesteps, can be represented as:
+*$$\hat{A}_t = A^{GAE}(a_t, s_t) = \delta_t + \lambda \gamma \delta_{t+1} + \lambda^2 \gamma^2 \delta_{t+2} + \cdots$$
 
 $$= \sum_{k = 0}^{\infty}{(\gamma\lambda)^{k}\delta_{t + k}}$$
 
@@ -317,7 +314,7 @@ to the end of the episode.
 
 When the advantage function is truncated, it is as follows:
 
--   ${\widehat{A}}_{t} = \delta_{t} + (\gamma\lambda)\delta_{t + 1} + \ldots + \ (\gamma\lambda)^{T - 1}\delta_{t + T - 1}$
+$$\hat{A}_t = \delta_t + (\gamma \lambda) \delta_{t+1} + \cdots + (\gamma \lambda)^{T-1} \delta_{t+T-1}$$
 
 $$\delta_{k} = r_{k + 1} + \gamma V\left( s_{k + 1} \right) - V\left( s_{k} \right)$$
 
@@ -369,7 +366,7 @@ inefficient or ineffective. Thus, we use the formula,
 $L^{CLIP}(\theta)$, to assure that there is not a large deviation from
 the previous policy iteration. The formula is as follows:
 
-$$L^{CLIP}(\theta) = \ E_{t}\left\lbrack \min\left( \ \rho_{t}{\widehat{A}}_{t},\ clip\left( \rho_{t},\ 1 - \varepsilon,\ 1 + \varepsilon \right){\widehat{A}}_{t} \right) \right\rbrack$$
+$$L^{CLIP}(\theta) = E_t \left[ \min \left( \rho_t \hat{A}_t, \text{clip}(\rho_t, 1-\epsilon, 1+\epsilon) \hat{A}_t \right) \right]$$
 
 Overall PPO Objective
 
@@ -377,10 +374,8 @@ This function is optimized. The main goal is to adjust the parameter,
 $\theta$, to maximize A, while avoiding large updates that could render
 the algorithm inefficient. The formula is:
 
-*\
-*$$L^{PPO}(\theta) = Policy\ Objective - Value\ Objective + entropy\ bonus$$
-
-$$= {\widehat{E}}_{t}\left\lbrack L_{t}^{CLIP}(\theta) - {c_{1}\ L}_{t}^{VF}(\theta) + c_{2}B\lbrack\pi_{\theta}\rbrack(s_{t}) \right\rbrack$$
+*$$L^{PPO}(\theta) = \text{Policy Objective} - \text{Value Objective} + \text{entropy bonus} $$
+$$= \hat{E}_t \left[ L_t^{CLIP}(\theta) - c_1 L_t^{VF}(\theta) + c_2 B[\pi_\theta](s_t) \right]$$
 
 Where:
 
@@ -400,7 +395,7 @@ Where:
 
 -   $B\ $is an entropy bonus -- a random factor for policy exploration
 
--   ${\widehat{E}}_{t}\ $is empirical expectation at timestep
+-   ${\hat{E}}_{t}\ $is empirical expectation at timestep
 
 This objective aims to find better actions (policy objective) while
 estimating the value of the action across various states (value
