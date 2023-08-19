@@ -96,11 +96,11 @@ bias term. Then, a weighted sum and activation will transform the input
 into an output. The formula for the weighted sum in the x^th^ layer is
 as follows:
 
-$$v_{j} = \sum_{i}^{}{w_{ji}x_{i} + b_{j}}$$
+$v_{j} = sum_{i}^{}{w_{ji}x_{i} + b_{j}}$
 
 Where:
 
--   $w\ $is the weight, parameter, θ
+-   $w$is the weight, parameter, θ
 
 -   $y$ denotes the actual output
 
@@ -150,7 +150,7 @@ The local gradient for the output node is the negative derivative of the
 activation function, multiplied by the following layer's weighted sum
 and the error from the output:
 
-$${\delta_{j}(t) = \varphi}_{j}^{'}(v_{j}(t))\sum_{k}^{}{\delta_{k}(t)w_{kj}(t)}$$
+${\delta_{j}(t) = \varphi}_{j}^{'}(v_{j}(t))\sum_{k}^{}{\delta_{k}(t)w_{kj}(t)}$
 
 Through the process of adjusting the weights, the errors are propagated
 "backwards" through the cycle from the output to the input layer. The local
