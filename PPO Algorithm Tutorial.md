@@ -89,9 +89,9 @@ input data that are used for training the policy. They will bring in
 stochasticity to prevent overfitting. After each minibatch, the weights
 of the network are updated during an epoch, which is one full pass
 through the training data. More specifically, each neuron will receive
-an input [x_1,x_2,…,x_i] from a set of more
+an input $[x_1,x_2,\dots,x_i]$ from a set of more
 neurons. The inputs will be multiplied by the corresponding weights
-[w_1,w_2,…,w_i,w_j]  and added together with a
+$[w_1,w_2,\dots,w_i,w_j]$ and added together with a
 bias term. Then, a weighted sum and activation will transform the input
 into an output. The formula for the weighted sum in the x^th^ layer is
 as follows:
