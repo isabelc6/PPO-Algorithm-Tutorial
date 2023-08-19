@@ -93,7 +93,7 @@ an input $[x_1,x_2,\dots,x_i]$ from a set of more
 neurons. The inputs will be multiplied by the corresponding weights
 $[w_1,w_2,\dots,w_i,w_j]$ and added together with a
 bias term. Then, a weighted sum and activation will transform the input
-into an output. The formula for the weighted sum in the x^th^ layer is
+into an output. The formula for the weighted sum in the $x^{th}$ layer is
 as follows:
 
 $v_{j} = sum_{i}^{}{w_{ji}x_{i} + b_{j}}$
@@ -107,7 +107,7 @@ Where:
 -   $b$ is the bias term
 
 Then, an activation, $\varphi$, is applied to get the output in the
-y^th^ layer:
+$y^{th}$ layer:
 
 $$y_{i} = \varphi\ (v_{j})$$
 
@@ -150,7 +150,9 @@ The local gradient for the output node is the negative derivative of the
 activation function, multiplied by the following layer's weighted sum
 and the error from the output:
 
-${\delta_{j}(t) = \varphi}_{j}^{'}(v_{j}(t))\sum_{k}^{}{\delta_{k}(t)w_{kj}(t)}$
+$$\delta_{j}(t) = \varphi'_{j}(v_{j}(t))\sum_{k}\delta_{k}(t)w_{kj}(t)$$
+
+$${\delta_{j}(t) = \varphi}_{j}^{'}(v_{j}(t))\sum_{k}^{}{\delta_{k}(t)w_{kj}(t)}$$
 
 Through the process of adjusting the weights, the errors are propagated
 "backwards" through the cycle from the output to the input layer. The local
