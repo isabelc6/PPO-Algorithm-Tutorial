@@ -288,7 +288,7 @@ the value function and determines the magnitude of each update.
 
 Advantage Function
 
-The advantage function ($\hat{A}_t$) updates the value function
+The advantage function $\hat{A}_t$ updates the value function
 and policy. It measures the relative benefit of taking action $a_{t}$ in
 state $s_{t}$ compared to the average value of the state $s_{t}$. It can
 be considered equivalent to the TD-error, $\delta_{t}$, in TD Learning
@@ -301,7 +301,7 @@ $$Q\left( a_{t},s_{t} \right) = r_{t + 1} + \gamma V\left( s_{t + 1} \right)$$
 
 The generalized advantage estimation ${\widehat{A}}_{t}$, that is
 applied for td-learning for all timesteps, can be represented as:
-*$$\hat{A}_t = A^{GAE}(a_t, s_t) = \delta_t + \lambda \gamma \delta_{t+1} + \lambda^2 \gamma^2 \delta_{t+2} + \cdots$$
+$$\hat{A}_t = A^{GAE}(a_t, s_t) = \delta_t + \lambda \gamma \delta_{t+1} + \lambda^2 \gamma^2 \delta_{t+2} + \cdots$$
 
 $$= \sum_{k = 0}^{\infty}{(\gamma\lambda)^{k}\delta_{t + k}}$$
 
@@ -374,7 +374,7 @@ This function is optimized. The main goal is to adjust the parameter,
 $\theta$, to maximize A, while avoiding large updates that could render
 the algorithm inefficient. The formula is:
 
-*$$L^{PPO}(\theta) = \text{Policy Objective} - \text{Value Objective} + \text{entropy bonus} $$
+$$L^{PPO}(\theta) = \text{Policy Objective} - \text{Value Objective} + \text{entropy bonus} $$ 
 $$= \hat{E}_t \left[ L_t^{CLIP}(\theta) - c_1 L_t^{VF}(\theta) + c_2 B[\pi_\theta](s_t) \right]$$
 
 Where:
