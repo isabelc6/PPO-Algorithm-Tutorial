@@ -197,7 +197,7 @@ the gradients.
 
 *Figure 2: Gradient Descent*
 
-Reinforcement Learning
+### **Reinforcement Learning**
 
 Neural networks can be used to approximate value functions and policies
 in complex reinforcement learning processes as they intake a state and
@@ -215,20 +215,18 @@ environment. There are many algorithms that fall under reinforcement
 learning (Figure 3). Each different algorithm serves as a different way
 to apply this method.
 
-![A screenshot of a computer Description automatically
-generated](media/image3.png){width="6.418510498687664in"
-height="3.995450568678915in"}
+![Figure 3](Images%20and%20Videos%20for%20Tutorial/Various%20Reinforcement%20Learning%20Algorithms.jpg)
 
 *Figure 3: Various Reinforcement Learning Algorithms*
 
-Policy (Actor) Method
+### **Policy (Actor) Method**
 
 The goal of this actor-only method is to optimize the policy directly.
 The policy will set the learning behaviour of an agent at a given time.
 It will take no regard for the value function when learning the optimal
 policy.
 
-Value (Critic) Method
+### **Value (Critic) Method**
 
 Critic-only methods will aim to find the value function in order to
 predict future rewards. The value of a state is the total amount of the
@@ -236,26 +234,26 @@ reward an agent could expect to accumulate over the future, starting at
 that state. Value methods will learn an approximate value function to
 base their policy on.
 
-Actor-Critic Method
+### **Actor-Critic Method**
 
 This method of reinforcement learning is a combination of the policy and
 value methods. It contains the role of an actor who performs actions and
 the role of a critic that evaluates the actions using a value function.
 
-Learn the Model Method
+### **Learn the Model Method**
 
 These model-based methods aim to have the agent create a model of an
 environment to study and predict the next state and reward based on the
 current state and action.
 
-Given Model Method
+### **Given Model Method**
 
 In model-free methods, the agent must learn to make decisions without
 access to an environment or knowledge of its dynamics. Alternatively,
 the value function or policy is understood directly from interacting
 with the environment.
 
-Proximal Policy Optimization (PPO)
+### **Proximal Policy Optimization (PPO)**
 
 The PPO is a reinforcement learning algorithm that extracts the positive
 outcomes from previous policy optimization methods and adjusts the
@@ -263,13 +261,13 @@ parameters to create an efficient system. The PPO aims to control the
 size of each adjustment to ensure that the algorithm does not become
 unstable.
 
-# **Core Concepts**
+## **Core Concepts**
 
 In the following sections, we will cover some concepts that are
 pertinent to the PPO algorithm. These are the key components that shape
 the function of this method.
 
-Temporal Difference Learning (TD Learning)
+### **Temporal Difference Learning (TD Learning)**
 
 TD Learning is a method where an agent studies an episode even when the
 final outcome is unknown. It is a blend of Monte Carlo and Dynamic
@@ -277,7 +275,7 @@ Processing techniques. The main objective is to update the expected
 future reward of a state, which is based on the value of the subsequent
 state.
 
-Temporal Difference Error (TD Error)
+### **Temporal Difference Error (TD Error)**
 
 The TD error represents the difference between the estimated and
 observed values of a state. This error can be used to assess the
@@ -286,7 +284,7 @@ higher-than-expected reward, whereas a negative TD error signifies a
 reward that is less than expected. The TD error plays a critical role in
 the value function and determines the magnitude of each update.
 
-Advantage Function
+### **Advantage Function**
 
 The advantage function $\hat{A}_t$ updates the value function
 and policy. It measures the relative benefit of taking action $a_{t}$ in
@@ -318,7 +316,7 @@ $$\hat{A}_t = \delta_t + (\gamma \lambda) \delta_{t+1} + \cdots + (\gamma \lambd
 
 $$\delta_{k} = r_{k + 1} + \gamma V\left( s_{k + 1} \right) - V\left( s_{k} \right)$$
 
-Value Function Objective
+### **Value Function Objective**
 
 The value function tracks the expected reward an agent might receive at
 a certain state. Then, the value loss function minimizes the least
@@ -340,7 +338,7 @@ For one timestep, we have:
 
 $$V_{t}^{target} = Q_{\theta_{old}}\left( a_{t},s_{t} \right) = r_{t + 1} + \gamma V_{\theta_{old}}\left( s_{t + 1} \right)$$
 
-PPO Policy Objective
+### **PPO Policy Objective**
 
 A policy objective, derived from the Trust Region Policy Optimization
 (TRPO). Is described by the formula:
@@ -368,14 +366,14 @@ the previous policy iteration. The formula is as follows:
 
 $$L^{CLIP}(\theta) = E_t \left[ \min \left( \rho_t \hat{A}_t, \text{clip}(\rho_t, 1-\epsilon, 1+\epsilon) \hat{A}_t \right) \right]$$
 
-Overall PPO Objective
+### **Overall PPO Objective**
 
 This function is optimized. The main goal is to adjust the parameter,
 $\theta$, to maximize A, while avoiding large updates that could render
 the algorithm inefficient. The formula is:
 
 $$L^{PPO}(\theta) = \text{Policy Objective} - \text{Value Objective} + \text{entropy bonus} $$ 
-$$= \hat{E}_t \left[ L_t^{CLIP}(\theta) - c_1 L_t^{VF}(\theta) + c_2 B[\pi_\theta](s_t) \right]$$
+$$= \hat{E}_t \left[ L_t^{CLIP}(\theta) - c_1 L_t^{VF}(\theta) + c_2 B[\pi_theta](s_t) \right]$$
 
 Where:
 
@@ -402,7 +400,7 @@ estimating the value of the action across various states (value
 function), all while maintaining a level of randomness (entropy bonus)
 to ensure the exploration of all possibilities.
 
-# **The Algorithm**
+## **The Algorithm**
 
 The algorithm initiates with randomly selected $\theta$­~0~ values for the
 policy and value network parameters. The process continues through
@@ -474,7 +472,7 @@ the center, the episode ends. When the average total reward for the
 episode over 100 consecutive trials is greater than or equal to 195, the
 problem is considered solved.
 
-## Applying the PPO Algorithm in the Command Prompt
+### **Applying the PPO Algorithm in the Command Prompt**
 
 To start, the PPO source code must be downloaded to your system. The
 programs came from the ICLR blog post, *The 37 Implementation Details of
@@ -495,13 +493,11 @@ model using "gym" in our created environment. After all the code has
 run, a video will pop up showing the cart balancing the pole. It will
 look like this:
 
-![A screenshot of a computer Description automatically
-generated](media/image4.png){width="2.9302307524059494in"
-height="1.8876629483814522in"}
+![Figure 4](Images%20and%20Videos%20for%20Tutorial/Cartpole%20Problem%20Result.jpg)
 
-*Figure 5: Cartpole Problem Result*
+*Figure 4: Cartpole Problem Result*
 
-## CartPole Installation Steps
+### **CartPole Installation Steps**
 
 To install Python onto WSL:
 
@@ -645,7 +641,7 @@ In this problem, we are attempting to program the humanoid robot to
 perform human-like movements. Like the Cartpole problem, it uses the PPO
 algorithm to adjust the actions of the robot to improve its performance.
 
-## Running the Humanoid Problem in WSL
+### **Running the Humanoid Problem in WSL**
 
 Before starting, make sure that WSL and Ubuntu are installed. All code
 will be run in WSL. Next, the MuJoCo directory must be set up. MuJoCo is
@@ -658,13 +654,11 @@ of videos for each episode of this problem. These videos are the
 humanoid training videos from the environments. They will look something
 like this:
 
-![A computer screen shot of a person running Description automatically
-generated](media/image5.png){width="3.2956517935258094in"
-height="3.0868055555555554in"}
+![Figure 5](Images%20and%20Videos%20for%20Tutorial/Episode%20of%20Humanoid%20Problem.jpg)
 
-*Figure 6: Episode of Humanoid Problem*
+*Figure 5: Episode of Humanoid Problem*
 
-## Humanoid Installation Steps
+### **Humanoid Installation Steps**
 
 \# Create the MuJuCo directory in the home directory and download the
 2.10 version for Linux.
@@ -736,7 +730,7 @@ cd/\.../humanoid.py
 
 python humanoid.py
 
-Work Cited
+## **Work Cited**
 
 Huang, S., Doussa, R. F. J., Raffin, A., Kanervisto, A., & Wang, W.
 (2022, March 25). The 37 Implementation Details of Proximal Policy
