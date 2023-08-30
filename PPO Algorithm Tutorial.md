@@ -373,7 +373,10 @@ $\theta$, to maximize A, while avoiding large updates that could render
 the algorithm inefficient. The formula is:
 
 $$L^{PPO}(\theta) = \text{Policy Objective} - \text{Value Objective} + \text{entropy bonus} $$ 
-$$= \hat{E}_t \left[ L_t^{CLIP}(\theta) - c_1 L_t^{VF}(\theta) + c_2 B[\pi_theta](s_t) \right]$$
+$$=\hat{E}_t \left[ L_t^{CLIP}(\theta) - c_1 L_t^{VF}(\theta) + c_2 B[\pi_\theta] (s_t) \right]$$
+$$
+= \hat{E}_t \left[ L_t^{CLIP}(\theta) - c_1 L_t^{VF}(\theta) + c_2 S[\pi_\theta] (s_t) \right]
+$$
 
 Where:
 
