@@ -572,61 +572,25 @@ programming functions that are used to process videos and images.
 
 pip install PyOpenGL_accelerate
 
-> \# The library PyOpenGL_accelerate is installed. It is an open module
-> of OpenGL that accelerates some PyOpenGL features through more
-> efficient operations.
-
 pip install tensorboard==2.12
-
-> \# pip is the Python package installer. The 2.12 version of
-> tensorboard is installed. It is a tool that provides measurements and
-> visualizations that are required for the machine learning workflow.
 
 pip install setuptools==59.5
 
-> \# Setuptools is an actively maintained and stable library that
-> facilitates packaging Python projects. It is an indirect dependency of
-> various Python packages.
-
 pip install imageio-ffmpeg==0.3
-
-\# The 0.3 version of imageio-ffmpeg is installed to read and write
-multimedia files.
 
 pip install gym==0.21
 
-> \# Gym is a toolkit used to develop and compare reinforcement learning
-> algorithms. It also provides a set of environments to test algorithms.
-
 pip install pyglet==1.5.21
-
-> \# Pyglet is a Python library used to create games and multimedia
-> applications. The Gym toolkit uses it to create the GUI and render
-> environments.
 
 pip install opencv-python==4.5.5.62
 
-> \# OpenCV is a library of programming functions that are often used to
-> process videos and images. This installs version 4.5.5.62 of the
-> OpenCV Python library.
-
 pip install cython==0.29.26
 
-> \# Cython is a programming language that focuses on being a superset
-> of Python. It gives C-like performances written in majorly Python
-> code. This installs version 0.29.26 of Cython. It is often used to
-> optimize Python code and interface C libraries.
+\# Lockfile is installed to create a seamless process to handle file locking. MuJoCo is a physics engine used for detailed body simulations with contacts. 
 
 pip install lockfile
 
-> \# Lockfile is installed. It is used to create an easy way to handle
-> file locking. It proves useful when the program needs to prevent
-> concurrent access to shared resources.
-
 pip install -U \'mujoco-py\<2.2,\>=2.1'
-
-> \# This installs Mujoco, a physics engine for detailed, efficient
-> rigid body simulations with contacts.
 
 \# Using the Python script with the PPO algorithm from the repertoire,
 use the tool VirtualGL to ensure the graphics rendering uses GPU
@@ -684,34 +648,18 @@ video streams, render graphics, etc.
 
 sudo apt-get install libx11-dev
 
-\# This downloads the libraries for development files for the windowing
-system (X11).
-
 sudo apt-get install libglew-dev
-
-\# This installs the OpenGL Extension Wrangler Library. It is used for
-modern graphical functions.
 
 sudo apt-get install libx264-dev
 
-\# This installs the development files for the x264 library. It is used
-to encode video streams.
-
 sudo apt-get install libosmesa6-dev
-
-\# This installs the library, Mesa. It is a 3D graphics library that
-does off-screen rendering.
 
 sudo apt-get install libgl1-mesa-glx libglfw3 patchelf
 
-\# This will download different graphics and utility libraries.
-
-\# Install and update the old libffi7 library to support applications.
+\# Install and update the old libffi7 library to support applications. dpkg -i installs the Debian package.
 
 wget
 http://es.archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi7_3.3-4_amd64.deb
-
-\# dpkg -i installs the Debian package.
 
 sudo dpkg -i libffi7_3.3-4_amd64.deb
 
